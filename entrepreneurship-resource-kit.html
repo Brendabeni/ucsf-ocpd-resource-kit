@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OCPD Entrepreneurship Resource Kit – UCSF</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400&display=swap" rel="stylesheet" />
+  <style>
+    /* ═══════════════════════════════════════════════
+       OFFICIAL UCSF 2021 BRAND COLOR PALETTE
+       Source: UCSF_COLOR_PALETTE_CMYK_2021_FINAL.pdf
+    ═══════════════════════════════════════════════ */
+    :root {
+      /* Core */
+      --ucsf-navy:       #052049;   /* UCSF Navy – primary brand */
+      --ucsf-black:      #000000;
+      --ucsf-white:      #FFFFFF;
+
+      /* Blues */
+      --ucsf-a2:         #0F388A;   /* A2 deep blue */
+      --ucsf-cta:        #006BE9;   /* A3 CTA Blue – official action color */
+      --ucsf-blue:       #178CCB;   /* B3 Blue */
+      --ucsf-blue-lt:    #B8E6FA;   /* B5 */
+      --ucsf-blue-xlt:   #E2F4FC;   /* B6 */
+
+      /* Teals */
+      --ucsf-teal-dk:    #0E5258;   /* C1 dark teal */
+      --ucsf-teal-md:    #14828C;   /* C2 mid teal */
+      --ucsf-teal:       #16A0AC;   /* C3 Teal – official */
+      --ucsf-teal-lt:    #60D0DA;   /* C4 */
+      --ucsf-teal-xlt:   #B4E2E8;   /* C5 */
+
+      /* Greens */
+      --ucsf-green-dk:   #00483A;   /* D1 */
+      --ucsf-green:      #32A03E;   /* D3 Green */
+
+      /* Purples */
+      --ucsf-purple:     #6C62D0;   /* F3 Purple */
+      --ucsf-yosemite:   #8A8CE3;   /* F4 Yosemite */
+
+      /* Grays */
+      --ucsf-bluegray:   #506380;   /* I3 Blue Gray */
+      --ucsf-bg:         #F2F3F4;   /* I6 – official light bg */
+      --ucsf-gray:       #878D96;   /* J2 */
+      --ucsf-coolgray:   #B4B9BF;   /* J3 Cool Gray */
+      --ucsf-border:     #E1E3E5;   /* J5 – official border */
+      --ucsf-gray-k:     #D1D3D3;   /* K3 Gray */
+
+      /* Primary accent (replaces secondary yellow — using B3 Blue) */
+      --ucsf-accent:     #178CCB;   /* B3 Blue – primary accent */
+
+      /* Category tags */
+      --tag-ucsf:        #16A0AC;   /* C3 Teal */
+      --tag-stanford:    #8C1515;   /* Stanford cardinal */
+      --tag-berkeley:    #003262;   /* Berkeley blue */
+      --tag-bay:         #14828C;   /* C2 mid teal */
+      --tag-ai:          #006BE9;   /* A3 CTA Blue */
+
+      /* Functional */
+      --text:            #052049;
+      --text-muted:      #506380;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--ucsf-bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ════════════════════════════════════
+       TOP BAR — UCSF + OCPD Identity
+    ════════════════════════════════════ */
+    .top-bar {
+      background: var(--ucsf-navy);
+      padding: 0 40px;
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      min-height: 64px;
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+
+    /* UCSF Wordmark block */
+    .ucsf-wordmark {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-right: 1px solid rgba(255,255,255,0.2);
+      padding-right: 20px;
+      margin-right: 20px;
+    }
+
+    .wordmark-ucsf {
+      font-size: 30px;
+      font-weight: 900;
+      color: white;
+      letter-spacing: -1px;
+      line-height: 1;
+    }
+
+    .wordmark-full {
+      font-size: 9px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      line-height: 1.5;
+      margin-top: 2px;
+    }
+
+    /* OCPD Department block */
+    .ocpd-label { display: flex; flex-direction: column; justify-content: center; }
+    .ocpd-label .dept    { font-size: 13.5px; font-weight: 700; color: white; }
+    .ocpd-label .subdept { font-size: 10.5px; color: rgba(255,255,255,0.5); margin-top: 1px; }
+
+    /* Primary color accent stripe under top bar */
+    .top-accent-bar {
+      height: 3px;
+      background: linear-gradient(90deg, var(--ucsf-blue) 0%, var(--ucsf-teal) 60%, var(--ucsf-teal-dk) 100%);
+    }
+
+    /* ════════════════════════════════════
+       HERO BANNER
+    ════════════════════════════════════ */
+    .hero-banner {
+      background: linear-gradient(155deg, #041a3d 0%, #052049 45%, #093060 75%, #0e4d78 100%);
+      padding: 52px 40px 50px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle dot grid */
+    .hero-banner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(22,160,172,0.1) 1px, transparent 1px);
+      background-size: 36px 36px;
+      pointer-events: none;
+    }
+
+    .hero-inner { position: relative; z-index: 1; }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(23,140,203,0.18);
+      border: 1px solid rgba(23,140,203,0.4);
+      color: var(--ucsf-blue);
+      padding: 5px 16px;
+      border-radius: 20px;
+      font-size: 11.5px;
+      font-weight: 800;
+      letter-spacing: 0.7px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-size: 40px;
+      font-weight: 900;
+      color: white;
+      line-height: 1.15;
+      margin-bottom: 14px;
+      max-width: 740px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-title em { font-style: normal; color: var(--ucsf-teal-lt); }
+
+    .hero-subtitle {
+      font-size: 17px;
+      color: rgba(255,255,255,0.72);
+      max-width: 600px;
+      margin: 0 auto 38px;
+      font-weight: 300;
+    }
+
+    /* ════════════════════════════════════
+       START HERE — Persona Cards
+    ════════════════════════════════════ */
+    .start-here-wrap { max-width: 900px; margin: 0 auto; }
+
+    .start-here {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+      padding: 26px 30px;
+      text-align: left;
+    }
+
+    .start-here-label {
+      font-size: 11px;
+      font-weight: 800;
+      color: rgba(255,255,255,0.55);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    /* 4 persona cards in a 2×2 grid */
+    .persona-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .persona-card {
+      background: rgba(255,255,255,0.07);
+      border: 1.5px solid rgba(255,255,255,0.13);
+      border-radius: 11px;
+      padding: 15px 14px;
+      cursor: pointer;
+      transition: all 0.22s;
+    }
+
+    .persona-card:hover {
+      background: rgba(22,160,172,0.18);
+      border-color: var(--ucsf-teal);
+      transform: translateY(-2px);
+    }
+
+    .persona-card.active {
+      border-color: var(--ucsf-teal);
+      background: rgba(22,160,172,0.22);
+    }
+
+    .persona-card h4 { font-size: 13px; font-weight: 800; color: white; margin-bottom: 4px; }
+    .persona-card p  { font-size: 11.5px; color: rgba(255,255,255,0.6); line-height: 1.45; }
+
+    /* ════════════════════════════════════
+       ABOUT SECTION
+    ════════════════════════════════════ */
+    .about-section {
+      background: white;
+      border-bottom: 2px solid var(--ucsf-border);
+    }
+
+    .about-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 50px 40px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    /* Teal rule */
+    .gold-rule {
+      width: 50px;
+      height: 3px;
+      background: var(--ucsf-teal);
+      border-radius: 2px;
+      margin: 16px 0 18px;
+    }
+
+    .about-left h2 {
+      font-size: 27px;
+      font-weight: 900;
+      color: var(--ucsf-navy);
+      line-height: 1.25;
+    }
+
+    .about-left h2 span { color: var(--ucsf-teal); }
+
+    .about-left p {
+      font-size: 15px;
+      color: #444;
+      line-height: 1.72;
+      margin-bottom: 12px;
+    }
+
+    .about-left p:last-of-type { margin-bottom: 0; }
+
+    .audience-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .audience-chip {
+      background: var(--ucsf-bg);
+      border: 1.5px solid var(--ucsf-border);
+      border-radius: 20px;
+      padding: 5px 13px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--ucsf-navy);
+    }
+
+    .about-right h3 {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--ucsf-navy);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .how-to-steps { display: flex; flex-direction: column; gap: 15px; }
+
+    .how-step { display: flex; gap: 13px; align-items: flex-start; }
+
+    .step-num {
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      background: var(--ucsf-teal);
+      color: white;
+      font-size: 13px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .step-body h4 { font-size: 13.5px; font-weight: 800; color: var(--ucsf-navy); margin-bottom: 2px; }
+    .step-body p  { font-size: 12.5px; color: #666; line-height: 1.5; }
+
+    /* ════════════════════════════════════
+       MAIN / RESOURCE SECTION
+    ════════════════════════════════════ */
+    main {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 40px 24px 72px;
+    }
+
+    .section-heading { font-size: 22px; font-weight: 900; color: var(--ucsf-navy); margin-bottom: 4px; }
+    .section-sub     { font-size: 14px; color: var(--ucsf-bluegray); margin-bottom: 22px; }
+
+    /* ── Controls ── */
+    .controls { display: flex; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; align-items: center; }
+
+    .search-wrap { flex: 1; min-width: 260px; position: relative; }
+
+    .search-icon {
+      position: absolute; left: 14px; top: 50%;
+      transform: translateY(-50%);
+      color: var(--ucsf-coolgray);
+      pointer-events: none;
+    }
+
+    #search {
+      width: 100%;
+      padding: 11px 16px 11px 43px;
+      border-radius: 10px;
+      border: 2px solid var(--ucsf-border);
+      font-size: 14.5px;
+      font-family: inherit;
+      background: white;
+      color: var(--text);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    #search:focus {
+      outline: none;
+      border-color: var(--ucsf-teal);
+      box-shadow: 0 0 0 3px rgba(22,160,172,0.14);
+    }
+
+    .filter-group { display: flex; gap: 7px; flex-wrap: wrap; }
+
+    .filter-btn {
+      padding: 9px 16px;
+      border-radius: 22px;
+      border: 2px solid var(--ucsf-border);
+      background: white;
+      cursor: pointer;
+      font-size: 12.5px;
+      font-weight: 700;
+      font-family: inherit;
+      color: var(--ucsf-bluegray);
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .filter-btn:hover { border-color: var(--ucsf-teal); color: var(--ucsf-teal); }
+    .filter-btn.active { background: var(--ucsf-navy); border-color: var(--ucsf-navy); color: white; }
+
+    .filter-btn[data-filter="ucsf"].active     { background: var(--tag-ucsf); border-color: var(--tag-ucsf); }
+    .filter-btn[data-filter="stanford"].active  { background: var(--tag-stanford); border-color: var(--tag-stanford); }
+    .filter-btn[data-filter="berkeley"].active  { background: var(--tag-berkeley); border-color: var(--tag-berkeley); }
+    .filter-btn[data-filter="bay"].active       { background: var(--tag-bay); border-color: var(--tag-bay); }
+    .filter-btn[data-filter="ai"].active        { background: var(--tag-ai); border-color: var(--tag-ai); }
+
+    /* Stage filter row */
+    .stage-filter-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+      padding: 12px 16px;
+      background: white;
+      border: 1.5px solid var(--ucsf-border);
+      border-radius: 10px;
+    }
+
+    .stage-label {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--ucsf-navy);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      white-space: nowrap;
+      padding-right: 6px;
+      border-right: 1.5px solid var(--ucsf-border);
+      margin-right: 4px;
+    }
+
+    .stage-btn {
+      padding: 7px 14px;
+      border-radius: 20px;
+      border: 1.5px solid var(--ucsf-border);
+      background: var(--ucsf-bg);
+      cursor: pointer;
+      font-size: 12.5px;
+      font-weight: 700;
+      font-family: inherit;
+      color: var(--ucsf-bluegray);
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .stage-btn:hover { border-color: var(--ucsf-teal); color: var(--ucsf-teal); background: white; }
+    .stage-btn.active { background: var(--ucsf-teal); border-color: var(--ucsf-teal); color: white; }
+
+    .results-info { font-size: 13px; color: var(--ucsf-gray); margin-bottom: 18px; }
+    .results-info strong { color: var(--ucsf-navy); }
+
+    /* ════════════════════════════════════
+       RESOURCE CARDS
+    ════════════════════════════════════ */
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 20px;
+    }
+
+    .resource-card {
+      background: white;
+      border-radius: 13px;
+      border: 1.5px solid var(--ucsf-border);
+      box-shadow: 0 2px 10px rgba(5,32,73,0.05);
+      overflow: hidden;
+      transition: all 0.25s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .resource-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(5,32,73,0.12);
+      border-color: var(--ucsf-teal-lt);
+    }
+
+    .resource-card.hidden { display: none; }
+
+    /* color accent bar */
+    .card-accent { height: 4px; }
+    .accent-ucsf     { background: linear-gradient(90deg, var(--ucsf-teal), var(--ucsf-blue)); }
+    .accent-stanford { background: linear-gradient(90deg, #8C1515, #c0392b); }
+    .accent-berkeley { background: linear-gradient(90deg, #003262, #3b7ea1); }
+    .accent-bay      { background: linear-gradient(90deg, var(--ucsf-teal-dk), var(--ucsf-green)); }
+    .accent-ai       { background: linear-gradient(90deg, var(--ucsf-cta), var(--ucsf-yosemite)); }
+
+    .card-header { padding: 18px 20px 12px; border-bottom: 1px solid var(--ucsf-border); }
+
+    .card-meta { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+
+    .category-tag {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 10.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: white;
+    }
+
+    .tag-ucsf     { background: var(--tag-ucsf); }
+    .tag-stanford { background: var(--tag-stanford); }
+    .tag-berkeley { background: var(--tag-berkeley); }
+    .tag-bay      { background: var(--tag-bay); }
+    .tag-ai       { background: var(--tag-ai); }
+
+    /* AI badge on cards that are AI-relevant */
+    .ai-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(0,107,233,0.1);
+      color: var(--ucsf-cta);
+      border: 1px solid rgba(0,107,233,0.25);
+      border-radius: 10px;
+      padding: 2px 8px;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+    }
+
+    .resource-type { font-size: 11px; color: var(--ucsf-coolgray); font-style: italic; }
+
+    .card-title {
+      font-size: 16.5px;
+      font-weight: 800;
+      color: var(--ucsf-navy);
+      line-height: 1.3;
+      margin-bottom: 6px;
+    }
+
+    .card-audience { font-size: 12px; color: var(--ucsf-bluegray); display: flex; align-items: flex-start; gap: 5px; }
+    .card-audience strong { color: var(--ucsf-teal); font-weight: 700; flex-shrink: 0; }
+
+    .card-body { padding: 15px 20px; flex: 1; }
+
+    .card-desc { font-size: 13.5px; color: #555; line-height: 1.65; margin-bottom: 13px; }
+
+    .card-highlights { display: flex; flex-direction: column; gap: 7px; }
+
+    .highlight-item { display: flex; gap: 8px; font-size: 12.5px; }
+
+    .highlight-label { font-weight: 800; color: var(--ucsf-navy); min-width: 68px; flex-shrink: 0; }
+    .highlight-value { color: #666; }
+
+    /* expandable */
+    .card-details { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .card-details.open { max-height: 950px; border-top: 1px solid var(--ucsf-border); }
+    .card-details-inner { padding: 15px 20px; }
+
+    .detail-section { margin-bottom: 12px; }
+    .detail-section h5 {
+      font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.9px;
+      color: var(--ucsf-teal); font-weight: 800; margin-bottom: 5px;
+    }
+    .detail-section p { font-size: 13px; color: #555; line-height: 1.6; }
+
+    /* footer */
+    .card-footer {
+      padding: 11px 20px;
+      border-top: 1px solid var(--ucsf-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      background: var(--ucsf-bg);
+    }
+
+    .btn-toggle {
+      font-size: 12px; font-weight: 700; color: var(--ucsf-teal);
+      cursor: pointer; background: none; border: none; font-family: inherit;
+      display: flex; align-items: center; gap: 4px; padding: 0;
+      transition: color 0.2s;
+    }
+    .btn-toggle:hover { color: var(--ucsf-navy); }
+
+    .btn-website {
+      font-size: 12px; font-weight: 700; color: white;
+      background: var(--ucsf-cta);   /* official CTA Blue A3 */
+      border: none; padding: 7px 14px; border-radius: 7px;
+      cursor: pointer; text-decoration: none; font-family: inherit;
+      transition: background 0.2s;
+      display: inline-flex; align-items: center; gap: 4px;
+    }
+    .btn-website:hover { background: var(--ucsf-navy); }
+
+    /* empty state */
+    .empty-state {
+      text-align: center; padding: 60px 20px; color: var(--ucsf-coolgray);
+      display: none; font-size: 15px;
+    }
+    .empty-state .big-icon { font-size: 44px; margin-bottom: 10px; }
+
+    /* ════════════════════════════════════
+       AI SECTION INTRO BANNER
+    ════════════════════════════════════ */
+    .ai-section-intro {
+      display: none;
+      background: linear-gradient(135deg, #001a40 0%, #003373 100%);
+      border-radius: 13px;
+      padding: 22px 28px;
+      margin-bottom: 20px;
+      border-left: 4px solid var(--ucsf-cta);
+    }
+
+    .ai-section-intro.visible { display: flex; align-items: flex-start; gap: 16px; }
+
+    .ai-intro-icon { font-size: 32px; flex-shrink: 0; }
+
+    .ai-intro-text h4 { font-size: 16px; font-weight: 800; color: white; margin-bottom: 4px; }
+    .ai-intro-text p  { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.55; }
+
+    /* ════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════ */
+    footer {
+      background: var(--ucsf-navy);
+      color: rgba(255,255,255,0.55);
+      padding: 36px 40px 24px;
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand .footer-ucsf {
+      font-size: 24px;
+      font-weight: 900;
+      color: white;
+      letter-spacing: -0.5px;
+    }
+
+    .footer-brand p { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 5px; }
+
+    .footer-links { text-align: right; font-size: 12.5px; }
+    .footer-links a {
+      color: var(--ucsf-teal-lt);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .footer-links a:hover { text-decoration: underline; }
+
+    .footer-divider {
+      border: none; border-top: 1px solid rgba(255,255,255,0.1);
+      margin: 22px 0 14px; max-width: 1120px; margin-left: auto; margin-right: auto;
+    }
+
+    .footer-copy {
+      max-width: 1120px; margin: 0 auto;
+      font-size: 11.5px; color: rgba(255,255,255,0.28);
+    }
+
+    /* ════════════════════════════════════
+       SCROLL TO TOP
+    ════════════════════════════════════ */
+    #scrollTop {
+      position: fixed; bottom: 26px; right: 26px;
+      width: 42px; height: 42px;
+      background: var(--ucsf-teal); color: white;
+      border: none; border-radius: 50%; cursor: pointer;
+      font-size: 18px; display: none; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.22); transition: background 0.2s; z-index: 200;
+    }
+    #scrollTop:hover  { background: var(--ucsf-navy); }
+    #scrollTop.visible { display: flex; }
+
+    /* ════════════════════════════════════
+       RESPONSIVE
+    ════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .persona-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 680px) {
+      .top-bar { padding: 12px 18px; }
+      .wordmark-ucsf { font-size: 24px; }
+      .hero-banner { padding: 36px 20px; }
+      .hero-title { font-size: 28px; }
+      .persona-grid { grid-template-columns: 1fr 1fr; }
+      .about-inner { padding: 32px 20px; }
+      .about-grid { grid-template-columns: 1fr; gap: 28px; }
+      main { padding: 26px 16px 56px; }
+      .resource-grid { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; }
+      .footer-links { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     TOP BAR — UCSF + OCPD Brand Header
+══════════════════════════════════════════ -->
+<header>
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <div class="ucsf-wordmark">
+        <span class="wordmark-ucsf">UCSF</span>
+        <span class="wordmark-full">University of California San Francisco</span>
+      </div>
+      <div class="ocpd-label">
+        <span class="dept">Office of Career &amp; Professional Development</span>
+        <span class="subdept">PhD &amp; Postdoctoral Scholars Programs</span>
+      </div>
+    </div>
+  </div>
+  <div class="top-accent-bar"></div>
+
+  <!-- ── HERO ── -->
+  <div class="hero-banner">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">✦ Entrepreneurship Resource Kit</div>
+      <h1 class="hero-title">Your launchpad for <em>healthtech, biotech &amp; AI</em> innovation</h1>
+      <p class="hero-subtitle">Curated accelerators, fellowships, incubators &amp; funding programs — hand-picked for UCSF PhD students, postdocs, and master's students ready to turn science into real-world impact.</p>
+
+      <!-- START HERE -->
+      <div class="start-here-wrap">
+        <div class="start-here">
+          <div class="start-here-label">🗺️ Click your profile to filter resources below ↓</div>
+          <div class="persona-grid">
+            <div class="persona-card" data-persona="early"   onclick="filterByPersona('early', this)">
+              <h4>🌱 1st–2nd Year PhD</h4>
+              <p>New to entrepreneurship. Explore education programs, workshops, and competitions at UCSF.</p>
+            </div>
+            <div class="persona-card" data-persona="masters" onclick="filterByPersona('masters', this)">
+              <h4>📚 Master's Student</h4>
+              <p>AI, computational, or life science MS student looking to leverage your skills in the biotech space.</p>
+            </div>
+            <div class="persona-card" data-persona="mid"     onclick="filterByPersona('mid', this)">
+              <h4>🔬 Advanced PhD / Postdoc</h4>
+              <p>Have a research idea or early prototype. Ready for mentorship, pilot funding, and translational programs.</p>
+            </div>
+            <div class="persona-card" data-persona="founder" onclick="filterByPersona('founder', this)">
+              <h4>🚀 Ready to Found / Fundraise</h4>
+              <p>Serious about starting a company. Looking for accelerators, equity investment, or wet lab space.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<!-- ══════════════════════════════════════════
+     ABOUT THIS RESOURCE KIT
+══════════════════════════════════════════ -->
+<section class="about-section">
+  <div class="about-inner">
+    <div class="about-grid">
+
+      <div class="about-left">
+        <h2>What is the <span>OCPD Entrepreneurship Resource Kit?</span></h2>
+        <div class="gold-rule"></div>
+        <p>The OCPD Entrepreneurship Resource Kit is a curated, interactive directory of entrepreneurship programs, accelerators, incubators, and funding opportunities designed specifically for UCSF PhD students, postdoctoral scholars, and master's students interested in translating research into real-world impact.</p>
+        <p>Whether you're exploring entrepreneurship for the first time, developing an early prototype, or actively building a company — including ventures at the intersection of <strong>AI and computational biology</strong> — this kit connects you to the best resources across UCSF, Stanford, UC Berkeley, and the broader Bay Area biotech and healthtech ecosystem.</p>
+        <div class="audience-chips">
+          <span class="audience-chip">🎓 PhD Students</span>
+          <span class="audience-chip">📚 Master's Students</span>
+          <span class="audience-chip">🔬 Postdoctoral Scholars</span>
+          <span class="audience-chip">🤖 AI &amp; Computational</span>
+          <span class="audience-chip">🏥 Healthtech &amp; Biotech</span>
+          <span class="audience-chip">🌁 Bay Area Based</span>
+        </div>
+      </div>
+
+      <div class="about-right">
+        <h3>📖 How to Use This Kit</h3>
+        <div class="how-to-steps">
+          <div class="how-step">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <h4>Pick your stage or program type</h4>
+              <p>Use the "Start Here" cards at the top to filter by where you are — from 1st-year PhD to ready-to-found — or click the <strong>🤖 AI &amp; Computational</strong> filter for programs relevant to computational biology and AI in biotech.</p>
+            </div>
+          </div>
+          <div class="how-step">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <h4>Filter by institution</h4>
+              <p>Browse UCSF-specific programs, or explore Stanford, UC Berkeley, and Bay Area opportunities — some require institutional affiliation, others are open to all.</p>
+            </div>
+          </div>
+          <div class="how-step">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <h4>Search by keyword</h4>
+              <p>Type topics like "non-dilutive," "wetlab," "drug discovery," "AI," or "fellowship" in the search bar to find exactly what you need.</p>
+            </div>
+          </div>
+          <div class="how-step">
+            <div class="step-num">4</div>
+            <div class="step-body">
+              <h4>Expand cards for full details</h4>
+              <p>Click "See details" on any card for offerings, how to apply, timelines, and notable alumni success stories.</p>
+            </div>
+          </div>
+          <div class="how-step">
+            <div class="step-num">5</div>
+            <div class="step-body">
+              <h4>Visit &amp; apply</h4>
+              <p>Click "Visit Website" to go directly to the program's official page and start your application.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     RESOURCE DIRECTORY
+══════════════════════════════════════════ -->
+<main>
+
+  <h2 class="section-heading">Resource Directory</h2>
+  <p class="section-sub">18 programs across UCSF, Stanford, UC Berkeley, and the Bay Area ecosystem</p>
+
+  <!-- Filter Controls -->
+  <div class="controls">
+    <div class="search-wrap">
+      <svg class="search-icon" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+      </svg>
+      <input type="text" id="search" placeholder="Search programs, funding type, or keywords…" oninput="applyFilters()" />
+    </div>
+    <div class="filter-group">
+      <button class="filter-btn active" data-filter="all"      onclick="setFilter('all')">All Programs</button>
+      <button class="filter-btn"        data-filter="ucsf"     onclick="setFilter('ucsf')">🏥 UCSF</button>
+      <button class="filter-btn"        data-filter="stanford" onclick="setFilter('stanford')">🌲 Stanford</button>
+      <button class="filter-btn"        data-filter="berkeley" onclick="setFilter('berkeley')">🐻 UC Berkeley</button>
+      <button class="filter-btn"        data-filter="bay"      onclick="setFilter('bay')">🌁 Bay Area</button>
+      <button class="filter-btn"        data-filter="ai"       onclick="setFilter('ai')">🤖 AI &amp; Computational</button>
+    </div>
+  </div>
+
+  <!-- Stage filter row -->
+  <div class="stage-filter-row">
+    <span class="stage-label">🎓 Filter by Stage</span>
+    <button class="stage-btn active" data-stage="all" onclick="setStage('all', this)">All Stages</button>
+    <button class="stage-btn" data-stage="early"   onclick="setStage('early', this)">🌱 1st–2nd Year PhD</button>
+    <button class="stage-btn" data-stage="masters" onclick="setStage('masters', this)">📚 Master's Student</button>
+    <button class="stage-btn" data-stage="mid"     onclick="setStage('mid', this)">🔬 Advanced PhD / Postdoc</button>
+    <button class="stage-btn" data-stage="founder" onclick="setStage('founder', this)">🚀 Ready to Found</button>
+  </div>
+
+  <p class="results-info">Showing <strong id="count">18</strong> resources</p>
+
+  <!-- AI section intro (shown when AI filter active) -->
+  <div class="ai-section-intro" id="aiIntro">
+    <div class="ai-intro-icon">🤖</div>
+    <div class="ai-intro-text">
+      <h4>AI &amp; Computational Biology in Biotech</h4>
+      <p>The biotech industry is increasingly driven by AI and computational approaches — from drug discovery and genomics to digital health and protein engineering. These programs are especially relevant for students with AI, ML, bioinformatics, or computational biology backgrounds looking to enter or build in the biotech space.</p>
+    </div>
+  </div>
+
+  <!-- Resource Grid -->
+  <div class="resource-grid" id="grid">
+
+    <!-- ════════════ UCSF ════════════ -->
+
+    <div class="resource-card" data-category="ucsf" data-stage="mid founder masters" data-tags="" data-keywords="rosenman medtech accelerator healthtech digital health nonprofit funding mentorship ADAPT">
+      <div class="card-accent accent-ucsf"></div>
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="category-tag tag-ucsf">UCSF</span>
+          <span class="resource-type">MedTech Accelerator</span>
+        </div>
+        <div class="card-title">UCSF Rosenman Institute</div>
+        <div class="card-audience"><strong>👥</strong> Health &amp; medtech startups — no UCSF affiliation required</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">Connects startups with investors, clinicians, and industry experts through programs including ADAPT, BUILD, RISE, and Rosenman Innovators. Includes its own venture fund — MedTech Venture Partners.</p>
+        <div class="card-highlights">
+          <div class="highlight-item"><span class="highlight-label">💰 Funding</span><span class="highlight-value">ADAPT awards $100K non-dilutive grants; Innovators provides in-kind support</span></div>
+          <div class="highlight-item"><span class="highlight-label">📅 Timeline</span><span class="highlight-value">Annual; Innovators cohort runs spring–summer</span></div>
+        </div>
+      </div>
+      <div class="card-details" id="d1">
+        <div class="card-details-inner">
+          <div class="detail-section"><h5>Offerings</h5><p>Non-dilutive funding, intensive mentorship (business strategy, product development, regulatory), investor networking, and an annual symposium with pitches to investors. Expert consulting, internships, and operational support included.</p></div>
+          <div class="detail-section"><h5>How to Apply</h5><p>Annual program calls. Rosenman Innovators opens applications in spring. ADAPT has specific criteria for companies with a product ready for pilot. No university affiliation required.</p></div>
+          <div class="detail-section"><h5>Notable Alumni</h5><p>Arterys (AI-powered medical imaging), Neura Health, ThriveLink (each received $100K ADAPT awards).</p></div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-toggle" onclick="toggleDetails('d1',this)">▾ See details</button>
+        <a class="btn-website" href="https://rosenmaninstitute.org" target="_blank">Visit Website ↗</a>
+      </div>
+    </div>
+
+    <div class="resource-card" data-category="ucsf" data-stage="mid founder" data-tags="" data-keywords="catalyst translational accelerator gap funding UCSF therapeutic diagnostic device digital health valley of death">
+      <div class="card-accent accent-ucsf"></div>
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="category-tag tag-ucsf">UCSF</span>
+          <span class="resource-type">Translational Accelerator</span>
+        </div>
+        <div class="card-title">UCSF Catalyst Program</div>
+        <div class="card-audience"><strong>👥</strong> UCSF faculty, postdocs &amp; students with early-stage discoveries</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">UCSF's flagship internal accelerator bridging the "valley of death" between academic research and viable products. Covers Therapeutics, Diagnostics, Medical Devices, Digital Health, and Bio-tools.</p>
+        <div class="card-highlights">
+          <div class="highlight-item"><span class="highlight-label">💰 Funding</span><span class="highlight-value">~$50K–$100K non-dilutive seed grants per project</span></div>
+          <div class="highlight-item"><span class="highlight-label">📅 Timeline</span><span class="highlight-value">Annual RFP; proposals due in fall, awards by year-end</span></div>
+        </div>
+      </div>
+      <div class="card-details" id="d2">
+        <div class="card-details-inner">
+          <div class="detail-section"><h5>Offerings</h5><p>Non-dilutive seed funding and hands-on mentorship over ~1 year. 80+ industry advisors guide experimental milestones, IP strategy, and market translation. Entrepreneurship education workshops included.</p></div>
+          <div class="detail-section"><h5>How to Apply</h5><p>Annual RFP open to UCSF investigators only. Short proposals reviewed for commercial potential. Projects at proof-of-concept stage with strong scientific basis are ideal. UCSF affiliation required.</p></div>
+          <div class="detail-section"><h5>Notable Alumni</h5><p>Circle Pharma (UCSF spin-out), Frank Brodie's retinal therapeutics project. Over half of Catalyst-supported projects progress to commercial development.</p></div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-toggle" onclick="toggleDetails('d2',this)">▾ See details</button>
+        <a class="btn-website" href="https://venture.ucsf.edu/catalyst" target="_blank">Visit Website ↗</a>
+      </div>
+    </div>
+
+    <div class="resource-card" data-category="ucsf" data-stage="early mid masters" data-tags="" data-keywords="startup 101 entrepreneurship education course workshop UCSF business plan life science SBIR free">
+      <div class="card-accent accent-ucsf"></div>
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="category-tag tag-ucsf">UCSF</span>
+          <span class="resource-type">Education Program</span>
+        </div>
+        <div class="card-title">UCSF Entrepreneurship Center &amp; Startup 101</div>
+        <div class="card-audience"><strong>👥</strong> UCSF grad students, postdocs, faculty &amp; clinicians</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">Flagship "Startup 101" is a 10-week online program teaching core business principles for life science startups. Build a business plan with Silicon Valley mentors — free or minimal fee for UCSF affiliates.</p>
+        <div class="card-highlights">
+          <div class="highlight-item"><span class="highlight-label">💰 Funding</span><span class="highlight-value">Free or minimal fee for UCSF affiliates</span></div>
+          <div class="highlight-item"><span class="highlight-label">📅 Timeline</span><span class="highlight-value">1–2 cohorts per year; Fall cohort typically starts Oct 1</span></div>
+        </div>
+      </div>
+      <div class="card-details" id="d3">
+        <div class="card-details-inner">
+          <div class="detail-section"><h5>Offerings</h5><p>Opportunity assessment, business models, team building, IP, FDA/regulatory strategy, reimbursement, and pitching. Finish with an investor pitch deck and business plan. SBIR/STTR grant education workshops also offered.</p></div>
+          <div class="detail-section"><h5>How to Apply</h5><p>Register at venture.ucsf.edu. UCSF affiliates only. Selection may be first-come or via short application if oversubscribed.</p></div>
+          <div class="detail-section"><h5>Notable Alumni</h5><p>InCarda Therapeutics (raised venture funding after UCSF workshops). Hundreds of UCSF scientists trained; many have won NIH SBIR grants.</p></div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-toggle" onclick="toggleDetails('d3',this)">▾ See details</button>
+        <a class="btn-website" href="https://venture.ucsf.edu" target="_blank">Visit Website ↗</a>
+      </div>
+    </div>
+
+    <!-- ★ NEW — Bakar Computational Health Sciences -->
+    <div class="resource-card" data-category="ucsf" data-stage="early mid masters founder" data-tags="ai" data-keywords="bakar computational health sciences AI machine learning data science digital health UCSF informatics EHR clinical">
+      <div class="card-accent accent-ai"></div>
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="category-tag tag-ucsf">UCSF</span>
+          <span class="ai-badge">🤖 AI &amp; Comp</span>
+        </div>
+        <div class="card-title">UCSF Bakar Computational Health Sciences Institute</div>
+        <div class="card-audience"><strong>👥</strong> UCSF students, postdocs &amp; faculty in data/AI/health research</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">UCSF's hub for computational and data-science approaches to health. Connects researchers and entrepreneurs working at the intersection of AI, machine learning, EHR data, and clinical care — bridging computational research to real-world health innovation and commercialization.</p>
+        <div class="card-highlights">
+          <div class="highlight-item"><span class="highlight-label">💰 Funding</span><span class="highlight-value">Pilot grants, seed awards, and industry partnership funding available</span></div>
+          <div class="highlight-item"><span class="highlight-label">📅 Timeline</span><span class="highlight-value">Ongoing community; grant calls announced throughout the year</span></div>
+        </div>
+      </div>
+      <div class="card-details" id="d-bakar">
+        <div class="card-details-inner">
+          <div class="detail-section"><h5>Offerings</h5><p>Seed funding for computational health projects, access to de-identified clinical datasets (via UCSF's OMOP data warehouse), mentorship from clinical and industry AI experts, seminar series, and connections to UCSF's AI in healthcare commercialization network.</p></div>
+          <div class="detail-section"><h5>Best For</h5><p>Students and postdocs with computational skills (ML, statistics, bioinformatics, NLP) who want to build tools for clinical care, drug discovery, genomics analysis, or health systems. Strong fit for AI/computational master's students seeking biotech exposure.</p></div>
+          <div class="detail-section"><h5>How to Engage</h5><p>Attend Bakar Institute events and seminars to connect with researchers and clinicians. Apply to pilot grant calls posted on the institute website. UCSF affiliation required for most programs.</p></div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-toggle" onclick="toggleDetails('d-bakar',this)">▾ See details</button>
+        <a class="btn-website" href="https://bakarinstitute.ucsf.edu" target="_blank">Visit Website ↗</a>
+      </div>
+    </div>
+
+    <!-- ★ NEW — QB3 Quantitative Biosciences -->
+    <div class="resource-card" data-category="ucsf" data-stage="early mid masters founder" data-tags="ai" data-keywords="QB3 quantitative biosciences UCSF Berkeley Santa Cruz computational biology bioinformatics biotech incubator synbio">
+      <div class="card-accent accent-ai"></div>
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="category-tag tag-ucsf">UCSF</span>
+          <span class="ai-badge">🤖 AI &amp; Comp</span>
+        </div>
+        <div class="card-title">QB3 – Quantitative Biosciences Institute</div>
+        <div class="card-audience"><strong>👥</strong> UCSF/UCB/UCSC students &amp; postdocs in quantitative biology</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">UC system-wide institute bridging quantitative sciences (bioinformatics, structural biology, systems biology) and biotech entrepreneurship. QB3 also runs its own startup incubator program and connects researchers to the Bay Area biotech industry.</p>
+        <div class="card-highlights">
+          <div class="highlight-item"><span class="highlight-label">💰 Funding</span><span class="highlight-value">Gap funding, startup incubator support, industry partnership grants</span></div>
+          <div class="highlight-item"><span class="highlight-label">📅 Timeline</span><span class="highlight-value">Ongoing programs; incubator applications reviewed rolling</span></div>
+        </div>
+      </div>
+      <div class="card-details" id="d-qb3">
+        <div class="card-details-inner">
+          <div class="detail-section"><h5>Offerings</h5><p>QB3@953 startup incubator space in SF, gap funding for early-stage biotech ventures, connections to VCs and pharma partners, commercialization support for UC-affiliated researchers, and a robust network of biotech industry contacts.</p></div>
+          <div class="detail-section"><h5>Best For</h5><p>Researchers in computational biology, structural biology, genomics, proteomics, and systems biology who want to start or join a biotech company. Strong fit for master's students in bioinformatics or computational biology.</p></div>
+          <div class="detail-section"><h5>How to Apply</h5><p>Contact QB3 directly via their website. UCSF, UC Berkeley, or UCSC affiliation required. Both wet-lab and computational startups are supported. QB3 also hosts the IndieBio program relationship in SF.</p></div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-toggle" onclick="toggleDetails('d-qb3',this)">▾ See details</button>
+        <a class="btn-website" href="https://qb3.org" target="_blank">Visit Website ↗</a>
+      </div>
+    </div>
+
+    <!-- ════════════ STANFORD ════════════ -->
+
+    <div class="resource-card" data-category="stanford" data-stage="mid founder masters" data-tags="" data-keywords="biodesign fellowship medtech design stanford healthtech device diagnostic stipend paid global">
+      <div class="card-accent accent-stanford"></div>
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="category-tag tag-stanford">Stanford</span>
+          <span class="resource-type">Fellowship Program</span>
+        </div>
+        <div class="card-title">Stanford Byers Biodesign Innovation Fellowship</div>
+        <div class="card-audience"><strong>👥</strong> Engineers, scientists, clinicians — Stanford affiliation NOT required</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">Prestigious 10-month paid fellowship training participants in the Biodesign Process: identifying unmet medical needs, inventing solutions, and forming startups. ~12 fellows selected globally per year.</p>
+        <div class="card-highlights">
+          <div class="highlight-item"><span class="highlight-label">💰 Funding</span><span class="highlight-value">~$5,400/month stipend + health insurance</span></div>
+          <div class="highlight-item"><span class="highlight-label">📅 Timeline</span><span class="highlight-value">Apply by late July; fellowship runs Aug–June</span></div>
+        </div>
+      </div>
+      <div class="card-details" id="d4">
+        <div class="card-details-inner">
+          <div class="detail-section"><h5>Offerings</h5><p>Stipend-supported fellowship, access to Stanford clinical environments and prototyping facilities, vast Biodesign alumni network, investors, and medtech industry contacts. Post-fellowship coaching and Coulter Translational Grant opportunities.</p></div>
+          <div class="detail-section"><h5>How to Apply</h5><p>Highly competitive. Submit resume, essays, and letters of recommendation online. ~12 fellows selected from hundreds of applicants. No Stanford affiliation required — diversity of backgrounds encouraged.</p></div>
+          <div class="detail-section"><h5>Notable Alumni</h5><p>57+ companies founded. Oculeve (acquired by Allergan), EarLens, Shockwave Medical (public company). In first 12 years: 26 startups, $200M+ raised, 500+ jobs, 150,000+ patients impacted.</p></div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-toggle" onclick="toggleDetails('d4',this)">▾ See details</button>
+        <a class="btn-website" href="https://biodesign.stanford.edu" target="_blank">Visit Website ↗</a>
+      </div>
+    </div>
+
+    <div class="resource-card" data-category="stanford" data-stage="founder" data-tags="" data-keywords="startx accelerator stanford non-equity startup community healthcare biotech free no equity 200M">
+      <div class="card-accent accent-stanford"></div>
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="category-tag tag-stanford">Stanford</span>
+          <span class="resource-type">Non-Equity Accelerator</span>
+        </div>
+        <div class="card-title">StartX (Stanford Accelerator)</div>
+        <div class="card-audience"><strong>👥</strong> At least 1 founder must have Stanford affiliation</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">Non-profit, non-equity accelerator with strong peer mentorship ethos. Stanford has invested $200M+ so founders keep 100% equity. Includes StartX Med track for healthcare ventures.</p>
+        <div class="card-highlights">
+          <div class="highlight-item"><span class="highlight-label">💰 Funding</span><span class="highlight-value">Free; optional access to Stanford-StartX Fund co-investment</span></div>
+          <div class="highlight-item"><span class="highlight-label">📅 Timeline</span><span class="highlight-value">3 cohort cycles/year (10-week program)</span></div>
+        </div>
+      </div>
+      <div class="card-details" id="d5">
+        <div class="card-details-inner">
+          <div class="detail-section"><h5>Offerings</h5><p>Weekly workshops and mentoring, access to Stanford talent pool, investor Demo Day, networking events, lifelong community membership. 1,800+ entrepreneurs and advisors. 92% of alumni still active or acquired.</p></div>
+          <div class="detail-section"><h5>How to Apply</h5><p>Online application, interviews, evaluation by other entrepreneurs. At least one founder must have Stanford affiliation. Single-digit acceptance rate.</p></div>
+          <div class="detail-section"><h5>Notable Alumni</h5><p>700+ startups, valued $26B+ collectively. NanoPrecision Medical, Lucira Health (COVID-19 test, IPO 2021), Cortexyme. Average $11M raised per company.</p></div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-toggle" onclick="toggleDetails('d5',this)">▾ See details</button>
+        <a class="btn-website" href="https://startx.com" target="_blank">Visit Website ↗</a>
+      </div>
+    </div>
+
+    <div class="resource-card" data-category="stanford" data-stage="mid founder" data-tags="" data-keywords="spark translational drug therapeutics diagnostics stanford mentorship pilot grant faculty postdoc">
+      <div class="card-accent accent-stanford"></div>
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="category-tag tag-stanford">Stanford</span>
+          <span class="resource-type">Mentorship &amp; Grant Program</span>
+        </div>
+        <div class="card-title">Stanford SPARK – Translational Research Program</div>
+        <div class="card-audience"><strong>👥</strong> Stanford faculty, postdocs &amp; grad students (faculty PI required)</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">Hands-on program bridging academic discovery and commercialization in biopharmaceuticals and diagnostics. Weekly meetings with 200+ industry advisors focused on drug development milestones.</p>
+        <div class="card-highlights">
+          <div class="highlight-item"><span class="highlight-label">💰 Funding</span><span class="highlight-value">Up to $50K per project (pilot grants)</span></div>
+          <div class="highlight-item"><span class="highlight-label">📅 Timeline</span><span class="highlight-value">Annual; proposals due ~Sept 19; teams start in January</span></div>
+        </div>
+      </div>
+      <div class="card-details" id="d6">
+        <div class="card-details-inner">
+          <div class="detail-section"><h5>Offerings</h5><p>Funding + 1–2 year mentorship. Advisors guide medicinal chemistry, preclinical testing, patent strategy, and investor pitching. Weekly seminar series on drug development open to Stanford community. For-credit course available.</p></div>
+          <div class="detail-section"><h5>How to Apply</h5><p>Short proposals on product concept and unmet need. Proof-of-concept data required. Faculty PI required; postdocs/students can be co-investigators.</p></div>
+          <div class="detail-section"><h5>Notable Alumni</h5><p>50%+ of projects advanced to clinical trials or commercialization. 32 startups and 16 licenses as of 2018. Jasper Therapeutics (~$35M raised), FermaVir (acquired ~$15M). Won 2025 ACTS "Team Science" Award.</p></div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-toggle" onclick="toggleDetails('d6',this)">▾ See details</button>
+        <a class="btn-website" href="https://spark.stanford.edu" target="_blank">Visit Website ↗</a>
+      </div>
+    </div>
+
+    <!-- ════════════ UC BERKELEY ════════════ -->
+
+    <div class="resource-card" data-category="berkeley" data-stage="founder masters" data-tags="ai" data-keywords="skydeck accelerator UC Berkeley fund investment biotech healthtech demo day 200k equity AI computational">
+      <div class="card-accent accent-berkeley"></div>
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="category-tag tag-berkeley">UC Berkeley</span>
+          <span class="ai-badge">🤖 AI &amp; Comp</span>
+        </div>
+        <div class="card-title">Berkeley SkyDeck Accelerator</div>
+        <div class="card-audience"><strong>👥</strong> UC-affiliated founders (any UC campus); early-to-revenue stage</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">UC Berkeley's flagship accelerator combining program, mentorship network, and venture fund. Access to 450+ mentors, investor Demo Days, and Berkeley's 500,000-strong alumni network. Active in AI biotech and healthtech.</p>
+        <div class="card-highlights">
+          <div class="highlight-item"><span class="highlight-label">💰 Funding</span><span class="highlight-value">$200K investment for ~5% equity per startup</span></div>
+          <div class="highlight-item"><span class="highlight-label">📅 Timeline</span><span class="highlight-value">2 cohorts/year (Spring &amp; Fall); 6-month program</span></div>
+        </div>
+      </div>
+      <div class="card-details" id="d7">
+        <div class="card-details-inner">
+          <div class="detail-section"><h5>Offerings</h5><p>Office space, access to UC Berkeley research facilities and core labs, introductions to investors and corporate partners. HotDesk track for very early-stage projects with rolling admission.</p></div>
+          <div class="detail-section"><h5>How to Apply</h5><p>Application rounds twice a year. Written application + interviews. ~20–30 companies per batch. HotDesk has rolling admission.</p></div>
+          <div class="detail-section"><h5>Notable Alumni</h5><p>Alumni raised $1.47B+ with 25+ Series A/B and 17+ exits. Lime ($1B+), NovaXS Biotech, Cherubic (AI drug discovery). 60% of companies secure follow-on funding.</p></div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-toggle" onclick="toggleDetails('d7',this)">▾ See details</button>
+        <a class="btn-website" href="https://skydeck.berkeley.edu" target="_blank">Visit Website ↗</a>
+      </div>
+    </div>
+
+    <div class="resource-card" data-category="berkeley" data-stage="founder" data-tags="" data-keywords="bakar labs incubator wetlab biotech life science QB3 Berkeley bench space rolling admission">
+      <div class="card-accent accent-berkeley"></div>
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="category-tag tag-berkeley">UC Berkeley</span>
+          <span class="resource-type">Life Sciences Incubator</span>
+        </div>
+        <div class="card-title">Bakar Labs (Life Sciences Incubator)</div>
+        <div class="card-audience"><strong>👥</strong> Early-stage life science startups — open globally</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">Berkeley's largest full-service incubator (~35 resident companies) dedicated entirely to wet-lab bioscience. Rent by the bench, with shared instrumentation and access to core research facilities.</p>
+        <div class="card-highlights">
+          <div class="highlight-item"><span class="highlight-label">💰 Funding</span><span class="highlight-value">Lab/office space rental; "Golden Ticket" (free bench, 1 year) available</span></div>
+          <div class="highlight-item"><span class="highlight-label">📅 Timeline</span><span class="highlight-value">Rolling admissions — apply a few months in advance</span></div>
+        </div>
+      </div>
+      <div class="card-details" id="d8">
+        <div class="card-details-inner">
+          <div class="detail-section"><h5>Offerings</h5><p>Turnkey wet labs with essential equipment, EH&amp;S support, conference rooms, and event space. Pitch coaching, investor days, connections to Berkeley talent pool. QB3 commercialization expert network.</p></div>
+          <div class="detail-section"><h5>How to Apply</h5><p>Rolling application on Bakar Labs website. Committee evaluates scientific merit, team capability, and logistical needs. Leases typically 6–12 months, renewable. External startups welcome.</p></div>
+          <div class="detail-section"><h5>Notable Alumni</h5><p>Lviva Therapeutics (regenerative medicine), Micronoma (microbiome cancer diagnostics). Expanding with a new adjacent facility by 2027.</p></div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-toggle" onclick="toggleDetails('d8',this)">▾ See details</button>
+        <a class="btn-website" href="https://bakarlabs.berkeley.edu" target="_blank">Visit Website ↗</a>
+      </div>
+    </div>
+
+    <div class="resource-card" data-category="berkeley" data-stage="mid founder masters" data-tags="ai" data-keywords="CITRIS foundry deep tech incubator UC Berkeley healthtech bioengineering AI prototype no equity free robotics">
+      <div class="card-accent accent-berkeley"></div>
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="category-tag tag-berkeley">UC Berkeley</span>
+          <span class="ai-badge">🤖 AI &amp; Comp</span>
+        </div>
+        <div class="card-title">CITRIS Foundry</div>
+        <div class="card-audience"><strong>👥</strong> UC students, postdocs, or faculty with deep tech research</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">UC's premier incubator for technology ventures — healthtech, bioengineering, AI, robotics. 12-month free program emphasizing product development and prototyping. No equity taken. Strong AI and computational focus.</p>
+        <div class="card-highlights">
+          <div class="highlight-item"><span class="highlight-label">💰 Funding</span><span class="highlight-value">Free + small grants/stipends for prototype development</span></div>
+          <div class="highlight-item"><span class="highlight-label">📅 Timeline</span><span class="highlight-value">2 cohorts/year (Fall &amp; Spring); ~5 teams per batch</span></div>
+        </div>
+      </div>
+      <div class="card-details" id="d9">
+        <div class="card-details-inner">
+          <div class="detail-section"><h5>Offerings</h5><p>Workspace on campus, mentorship from seasoned entrepreneurs, training sessions, networking with investors. Access to CITRIS labs (device fabrication, makerspaces). Demo Day with investors and industry partners.</p></div>
+          <div class="detail-section"><h5>How to Apply</h5><p>Competitive. At least one founder from a UC campus. Looks for working prototype + compelling societal impact. Both hardware and software (AI) ventures accepted.</p></div>
+          <div class="detail-section"><h5>Notable Alumni</h5><p>Earable (wearable sleep tech), Respira Labs, Proggi (acquired), Eko Devices (smart stethoscope — FDA approved, joined YC). 130+ startups, alumni raised $220M+.</p></div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-toggle" onclick="toggleDetails('d9',this)">▾ See details</button>
+        <a class="btn-website" href="https://citris-uc.org/citris-foundry" target="_blank">Visit Website ↗</a>
+      </div>
+    </div>
+
+    <div class="resource-card" data-category="berkeley" data-stage="early mid founder masters" data-tags="" data-keywords="LAUNCH accelerator pitch competition UC Berkeley Haas biotech medtech non-dilutive prize lean startup">
+      <div class="card-accent accent-berkeley"></div>
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="category-tag tag-berkeley">UC Berkeley</span>
+          <span class="resource-type">Accelerator &amp; Pitch Competition</span>
+        </div>
+        <div class="card-title">LAUNCH Accelerator (UC Berkeley)</div>
+        <div class="card-audience"><strong>👥</strong> Early-stage startups led by UC students, alumni, or faculty</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">UC's marquee startup accelerator and venture competition at Haas Business School. 3-month program with lean startup curriculum, mentorship, and pitch coaching — culminating in a competitive Demo Day with cash prizes.</p>
+        <div class="card-highlights">
+          <div class="highlight-item"><span class="highlight-label">💰 Funding</span><span class="highlight-value">Non-dilutive cash prizes (e.g. $25K winner, $10K runner-up) + AWS credits</span></div>
+          <div class="highlight-item"><span class="highlight-label">📅 Timeline</span><span class="highlight-value">Apps open Nov–Dec; program Feb–Apr; Demo Day late April</span></div>
+        </div>
+      </div>
+      <div class="card-details" id="d10">
+        <div class="card-details-inner">
+          <div class="detail-section"><h5>Offerings</h5><p>Structured startup curriculum, intensive feedback on business plans, networking and visibility. Free workspace during key weeks. Some teams recruit Haas MBA students as co-founders or interns.</p></div>
+          <div class="detail-section"><h5>How to Apply</h5><p>Annual written application and video pitch. UC affiliation required. Some validation or prototype expected. Both for-profit and social impact ventures considered.</p></div>
+          <div class="detail-section"><h5>Notable Alumni</h5><p>Indiegogo (early participant), Pearl Therapeutics (acquired by AstraZeneca ~$1.15B), MindSets/Neurofenix (stroke rehab). Alumni raised $70M+ collectively.</p></div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-toggle" onclick="toggleDetails('d10',this)">▾ See details</button>
+        <a class="btn-website" href="https://haas.berkeley.edu/entrepreneurship" target="_blank">Visit Website ↗</a>
+      </div>
+    </div>
+
+    <!-- ════════════ BAY AREA ════════════ -->
+
+    <div class="resource-card" data-category="bay" data-stage="founder" data-tags="" data-keywords="IndieBio SOSV accelerator biotech life science pre-seed equity lab space SF scientist therapeutics synbio">
+      <div class="card-accent accent-bay"></div>
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="category-tag tag-bay">Bay Area</span>
+          <span class="resource-type">Private Biotech Accelerator</span>
+        </div>
+        <div class="card-title">IndieBio (SOSV Accelerator)</div>
+        <div class="card-audience"><strong>👥</strong> Pre-seed scientists &amp; aspiring founders — global applicants welcome</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">One of the world's leading biotech accelerators. 4-month cohort program turning scientists into founders with dedicated lab space in SF. Covers therapeutics, synbio, agri-food, clean biotech, and more.</p>
+        <div class="card-highlights">
+          <div class="highlight-item"><span class="highlight-label">💰 Funding</span><span class="highlight-value">$150K–$500K for ~8–10% equity; $2M state-of-the-art lab included</span></div>
+          <div class="highlight-item"><span class="highlight-label">📅 Timeline</span><span class="highlight-value">4-month cohort programs; multiple cycles/year (SF &amp; NYC)</span></div>
+        </div>
+      </div>
+      <div class="card-details" id="d11">
+        <div class="card-details-inner">
+          <div class="detail-section"><h5>Offerings</h5><p>Seed funding, free lab/office space, extensive mentor network (weekly 1:1 with biotech entrepreneurs, VCs, IP lawyers), up to $10K in AWS credits. SOSV often continues to invest at seed and Series A post-program.</p></div>
+          <div class="detail-section"><h5>How to Apply</h5><p>Online application. No affiliation required. Seeks scientists with breakthrough biotech ideas at pre-seed stage. Culminates in Demo Day before top VCs.</p></div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-toggle" onclick="toggleDetails('d11',this)">▾ See details</button>
+        <a class="btn-website" href="https://indiebio.co" target="_blank">Visit Website ↗</a>
+      </div>
+    </div>
+
+    <div class="resource-card" data-category="bay" data-stage="early mid founder masters" data-tags="" data-keywords="nucleate student-led biotech PhD postdoc network community nonprofit non-dilutive activator OCPD partner">
+      <div class="card-accent accent-bay"></div>
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="category-tag tag-bay">Bay Area</span>
+          <span class="resource-type">Student-Led Nonprofit Network</span>
+        </div>
+        <div class="card-title">Nucleate Bay Area</div>
+        <div class="card-audience"><strong>👥</strong> PhD students &amp; postdocs building life science startups</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">Student-led nonprofit helping scientists bridge academia and industry. Offers the Activator — a non-dilutive semester-long mentorship program with industry experts and investors. Key OCPD partner for the June 2026 Career &amp; Innovation Connect event.</p>
+        <div class="card-highlights">
+          <div class="highlight-item"><span class="highlight-label">💰 Funding</span><span class="highlight-value">Non-dilutive; mentorship and network value</span></div>
+          <div class="highlight-item"><span class="highlight-label">📅 Timeline</span><span class="highlight-value">Annual Activator cohort + year-round events</span></div>
+        </div>
+      </div>
+      <div class="card-details" id="d12">
+        <div class="card-details-inner">
+          <div class="detail-section"><h5>Offerings</h5><p>Activator: semester-long mentorship with biopharma executives, investors, and serial entrepreneurs. Events, workshops, and global community of academic bioentrepreneurs. No equity taken.</p></div>
+          <div class="detail-section"><h5>OCPD Connection</h5><p>Key partner for the "Career &amp; Innovation Connect" networking event (June 2026), directly connecting UCSF students with Bay Area biotech founders and investors.</p></div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-toggle" onclick="toggleDetails('d12',this)">▾ See details</button>
+        <a class="btn-website" href="https://nucleate.xyz" target="_blank">Visit Website ↗</a>
+      </div>
+    </div>
+
+    <div class="resource-card" data-category="bay" data-stage="founder" data-tags="" data-keywords="MBC BioLabs incubator wet lab biotech shared instruments South San Francisco SSF membership">
+      <div class="card-accent accent-bay"></div>
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="category-tag tag-bay">Bay Area</span>
+          <span class="resource-type">Shared Lab Incubator</span>
+        </div>
+        <div class="card-title">MBC BioLabs</div>
+        <div class="card-audience"><strong>👥</strong> Early-stage biotech/pharma startups needing wet lab space</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">Premier shared lab facility in South San Francisco — "Biotech Capital of the World." 70+ biotech startups sharing equipment, expertise, and connections on flexible membership terms. No equity taken.</p>
+        <div class="card-highlights">
+          <div class="highlight-item"><span class="highlight-label">💰 Funding</span><span class="highlight-value">Membership fee model; no equity taken</span></div>
+          <div class="highlight-item"><span class="highlight-label">📅 Timeline</span><span class="highlight-value">Rolling admissions; contact MBC directly for availability</span></div>
+        </div>
+      </div>
+      <div class="card-details" id="d13">
+        <div class="card-details-inner">
+          <div class="detail-section"><h5>Offerings</h5><p>Fully equipped chemistry and biology labs, shared high-cost instruments (mass spec, NMR, cell culture), on-site EH&amp;S support. Community seminars, networking events, and access to South SF biotech ecosystem.</p></div>
+          <div class="detail-section"><h5>How to Apply</h5><p>Contact MBC BioLabs directly to discuss space availability. Flexible terms from single bench rental to dedicated lab suites.</p></div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-toggle" onclick="toggleDetails('d13',this)">▾ See details</button>
+        <a class="btn-website" href="https://mbcbiolabs.com" target="_blank">Visit Website ↗</a>
+      </div>
+    </div>
+
+    <div class="resource-card" data-category="bay" data-stage="founder" data-tags="" data-keywords="JLABS Johnson Johnson incubator no equity life science healthcare QuickFire challenge non-dilutive SF">
+      <div class="card-accent accent-bay"></div>
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="category-tag tag-bay">Bay Area</span>
+          <span class="resource-type">Corporate Incubator (No Equity)</span>
+        </div>
+        <div class="card-title">JLABS @ San Francisco (J&amp;J)</div>
+        <div class="card-audience"><strong>👥</strong> Early-stage life science startups across any modality</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">Johnson &amp; Johnson's "no strings attached" life science incubator in SF. Lab and office space plus access to J&amp;J scientific and business expertise — without giving up equity. QuickFire Challenges offer non-dilutive awards.</p>
+        <div class="card-highlights">
+          <div class="highlight-item"><span class="highlight-label">💰 Funding</span><span class="highlight-value">No equity; QuickFire Challenges award $50K–$250K non-dilutive</span></div>
+          <div class="highlight-item"><span class="highlight-label">📅 Timeline</span><span class="highlight-value">Rolling applications; QuickFire Challenges run periodic calls</span></div>
+        </div>
+      </div>
+      <div class="card-details" id="d14">
+        <div class="card-details-inner">
+          <div class="detail-section"><h5>Offerings</h5><p>Lab/office space, access to J&amp;J scientific and business expertise, introductions to J&amp;J venture (JJDC) and Janssen Pharmaceutical partnerships. QuickFire Challenges provide non-dilutive funding for specific innovation themes.</p></div>
+          <div class="detail-section"><h5>How to Apply</h5><p>Apply on the JLABS website for a specific location. Rolling admissions. QuickFire Challenges have separate application processes with specific focus areas each cycle.</p></div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-toggle" onclick="toggleDetails('d14',this)">▾ See details</button>
+        <a class="btn-website" href="https://jlabs.jnjinnovation.com" target="_blank">Visit Website ↗</a>
+      </div>
+    </div>
+
+    <div class="resource-card" data-category="bay" data-stage="founder" data-tags="" data-keywords="California Life Sciences FAST fellowship CEO in residence funding biotech pharma medtech non-dilutive CLS">
+      <div class="card-accent accent-bay"></div>
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="category-tag tag-bay">Bay Area</span>
+          <span class="resource-type">Fellowship &amp; Funding Program</span>
+        </div>
+        <div class="card-title">California Life Sciences FAST Program</div>
+        <div class="card-audience"><strong>👥</strong> California-based life science startups (early to growth stage)</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">CLS's Forecasting, Accelerating &amp; Scaling Technologies program connects life science startups with non-dilutive funding, CEO-in-residence coaching, and California's life science investor ecosystem.</p>
+        <div class="card-highlights">
+          <div class="highlight-item"><span class="highlight-label">💰 Funding</span><span class="highlight-value">Grant funding + investor introductions (varies by program)</span></div>
+          <div class="highlight-item"><span class="highlight-label">📅 Timeline</span><span class="highlight-value">Annual cohort; check CLS website for application windows</span></div>
+        </div>
+      </div>
+      <div class="card-details" id="d15">
+        <div class="card-details-inner">
+          <div class="detail-section"><h5>Offerings</h5><p>CEO-in-residence coaching, industry mentorship, connections to California's life science funding ecosystem, and access to the CLS community of 1,400+ member companies.</p></div>
+          <div class="detail-section"><h5>How to Apply</h5><p>Annual application through the CLS website. California-based companies preferred. Mix of therapeutics, diagnostics, medical devices, and digital health accepted.</p></div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-toggle" onclick="toggleDetails('d15',this)">▾ See details</button>
+        <a class="btn-website" href="https://californialifesciences.org" target="_blank">Visit Website ↗</a>
+      </div>
+    </div>
+
+    <div class="resource-card" data-category="bay" data-stage="founder masters" data-tags="ai" data-keywords="Y Combinator YC startup accelerator batch seed funding equity Demo Day tech biotech health AI machine learning $500k 500k">
+      <div class="card-accent accent-ai"></div>
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="category-tag tag-bay">Bay Area</span>
+          <span class="ai-badge">🤖 AI &amp; Comp</span>
+        </div>
+        <div class="card-title">Y Combinator (YC)</div>
+        <div class="card-audience"><strong>👥</strong> Early-stage startups across all sectors — AI biotech actively funded</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">The world's most prestigious startup accelerator. 3-month batch in SF with a rapidly growing portfolio of AI and biotech companies. The YC alumni network is one of the most powerful in Silicon Valley. Now actively funding AI-biology and computational drug discovery startups.</p>
+        <div class="card-highlights">
+          <div class="highlight-item"><span class="highlight-label">💰 Funding</span><span class="highlight-value">$500K for ~7% equity; access to additional YC safe notes</span></div>
+          <div class="highlight-item"><span class="highlight-label">📅 Timeline</span><span class="highlight-value">2 batches/year (Winter &amp; Summer); rolling applications</span></div>
+        </div>
+      </div>
+      <div class="card-details" id="d16">
+        <div class="card-details-inner">
+          <div class="detail-section"><h5>Offerings</h5><p>3-month intensive program, weekly dinners with founders and investors, office hours with YC partners, access to 10,000+ alumni network. Demo Day before hundreds of top investors. Powerful brand signal for fundraising.</p></div>
+          <div class="detail-section"><h5>How to Apply</h5><p>Short online application (no long business plan). YC values team quality, market size, and insight into the problem. AI biotech and computational biology startups are increasingly prioritized. Applications roll continuously.</p></div>
+          <div class="detail-section"><h5>Notable Alumni</h5><p>Ginkgo Bioworks, Rigetti Computing, Lucira Health, plus hundreds of AI-biology startups. Combined alumni valuation $600B+.</p></div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-toggle" onclick="toggleDetails('d16',this)">▾ See details</button>
+        <a class="btn-website" href="https://ycombinator.com/apply" target="_blank">Visit Website ↗</a>
+      </div>
+    </div>
+
+  </div><!-- /resource-grid -->
+
+  <div class="empty-state" id="emptyState">
+    <div class="big-icon">🔍</div>
+    <p>No resources match your search. Try different keywords or clear the filter.</p>
+  </div>
+
+</main>
+
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-ucsf">UCSF</div>
+      <p>Office of Career &amp; Professional Development<br>PhD &amp; Postdoctoral Scholars Programs</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://career.ucsf.edu/phds/career-paths/venture-capital" target="_blank">UCSF OCPD Venture Capital Resources ↗</a>
+      <a href="https://venture.ucsf.edu" target="_blank">UCSF Innovation Ventures ↗</a>
+      <a href="https://career.ucsf.edu" target="_blank">OCPD Main Website ↗</a>
+    </div>
+  </div>
+  <hr class="footer-divider" />
+  <p class="footer-copy">OCPD Career &amp; Entrepreneurship Resource Kit · University of California San Francisco · In partnership with UCSF Innovation Ventures, Nucleate Bay Area &amp; Catalyst</p>
+</footer>
+
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+
+<!-- ══════════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════════ -->
+<script>
+  let activeFilter = 'all';   // institution/type filter
+  let activeStage  = 'all';   // stage filter
+
+  function setFilter(filter) {
+    activeFilter = filter;
+    document.querySelectorAll('.filter-btn').forEach(btn =>
+      btn.classList.toggle('active', btn.dataset.filter === filter)
+    );
+    document.getElementById('aiIntro').classList.toggle('visible', filter === 'ai');
+    applyFilters();
+  }
+
+  function setStage(stage, el) {
+    activeStage = stage;
+    document.querySelectorAll('.stage-btn').forEach(b => b.classList.remove('active'));
+    el.classList.add('active');
+    // also sync persona cards in hero
+    document.querySelectorAll('.persona-card').forEach(c =>
+      c.classList.toggle('active', c.dataset.persona === stage)
+    );
+    applyFilters();
+  }
+
+  function filterByPersona(stage, el) {
+    // Called from hero cards — sets the stage filter and syncs the button row
+    activeStage = stage;
+    document.querySelectorAll('.persona-card').forEach(c => c.classList.remove('active'));
+    el.classList.add('active');
+    document.querySelectorAll('.stage-btn').forEach(b =>
+      b.classList.toggle('active', b.dataset.stage === stage)
+    );
+    document.getElementById('aiIntro').classList.remove('visible');
+    applyFilters();
+    // Scroll to resource section so user sees the result
+    document.querySelector('main').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function applyFilters() {
+    const q = document.getElementById('search').value.toLowerCase().trim();
+    let visible = 0;
+    document.querySelectorAll('.resource-card').forEach(card => {
+      // institution/type filter
+      let matchFilter;
+      if (activeFilter === 'all')       matchFilter = true;
+      else if (activeFilter === 'ai')   matchFilter = (card.dataset.tags || '').includes('ai');
+      else                              matchFilter = card.dataset.category === activeFilter;
+
+      // stage filter
+      const stages = card.dataset.stage || '';
+      const matchStage = activeStage === 'all' || stages.includes(activeStage);
+
+      // keyword search
+      const corpus = [
+        card.dataset.keywords || '',
+        card.querySelector('.card-title')?.textContent || '',
+        card.querySelector('.card-desc')?.textContent || '',
+      ].join(' ').toLowerCase();
+      const matchSearch = !q || corpus.includes(q);
+
+      const show = matchFilter && matchStage && matchSearch;
+      card.classList.toggle('hidden', !show);
+      if (show) visible++;
+    });
+    document.getElementById('count').textContent = visible;
+    document.getElementById('emptyState').style.display = visible === 0 ? 'block' : 'none';
+  }
+
+  function toggleDetails(id, btn) {
+    const el = document.getElementById(id);
+    const open = el.classList.toggle('open');
+    btn.textContent = open ? '▴ Hide details' : '▾ See details';
+  }
+
+  window.addEventListener('scroll', () => {
+    document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 320);
+  });
+</script>
+</body>
+</html>
